@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Search= ({searchTerm , setSearchTerm}) => {
+const Search= ({searchTerm , setSearchTerm, setSearching}) => {
     return (
-        <div className="search flex items-center justify-center sm:justify-end w-full max-w-[600px] mx-auto px-4 py-2">
+        <div className="search flex items-center justify-center sm:justify-end w-full max-w-[600px] px-4 py-2">
           <button className="h-12 w-12 bg-[#0F0D23] rounded-l-xl flex justify-center items-center">
             <img src="https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663082/search_hugiab.png" alt="search" className="w-5 h-5" />
           </button>
@@ -12,6 +12,7 @@ const Search= ({searchTerm , setSearchTerm}) => {
             placeholder="Search through more than 300 movies"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onClick={() => setSearching(true)}
         />
 </div>
 

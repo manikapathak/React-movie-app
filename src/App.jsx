@@ -5,6 +5,7 @@ import Spinner from './components/Spinner';
 import MovieCard from './components/MovieCard';
 import { useDebounce } from 'react-use';
 import { updateSearchCount, getTrendingMovies } from './appwrite.js';
+import TrendingMoviesComponent from './components/TrendingMoviesComponent.jsx';
 
 
 
@@ -16,8 +17,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [trendingMovies, setTrendingMovies] = useState([]);
-
-
+  const [searching, setSearching] = useState(false);
   useDebounce (() => setDebouncedSearchTerm(searchTerm) , 500, [searchTerm])
 
 
@@ -107,37 +107,27 @@ function App() {
   }, [])
 
 
+ 
   return (
     <>
       <div className="pattern ">
 
-        <div className="wrapper">
+        <div className="wrapper" onClick={() => searching ? setSearching(false) : null}>
           <header>
             <div className="bg-[url('https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero-bg_tavadb.png')] bg-cover max-full  flex flex-wrap justify-center">
                 <img src="https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero_uoqf5h.png" alt="" className= 'h-75 w-auto pt-5'/>
                 {/* <HeaderElement trendingMovies = {trendingMovies}/> */}
                 <h1>Find <span className='text-gradient'>Movies</span> You Will Enjoy Without The Hassel</h1> 
-                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearching= {setSearching}/>
             </div>
           </header>
 
+        {searching ? (<div></div>) : (
+          <TrendingMoviesComponent trendingMovies={trendingMovies}/>  
 
-         {trendingMovies.length > 0 && (
-          <section className="trending">
-            <h2>Trending Movies</h2>
-
-            <ul>
-              {trendingMovies.map((movie, index) => (
-                <li key={movie.$id}>
-                  <p>{index + 1}</p>
-                  <img src={movie.poster_url} alt={movie.title} />
-                </li>
-              ))}
-            </ul>
-          </section>
         )}
 
-
+        
 
           <section className='all-movies pt-5'>
              <h2 className='pl-8 pb-3'>All Movies</h2>
