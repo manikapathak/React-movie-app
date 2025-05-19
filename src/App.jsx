@@ -1,5 +1,5 @@
 import './App.css'
-import Search from './components/search';
+import Search from './components/Search';
 import {useState, useEffect} from 'react';
 import Spinner from './components/Spinner';
 import MovieCard from './components/MovieCard';
@@ -113,8 +113,8 @@ function App() {
 
         <div className="wrapper">
           <header>
-            <div className="bg-[url('/public/hero-bg.png')] bg-cover max-full  flex flex-wrap justify-center">
-                <img src="/public/hero.png" alt="" className= 'h-75 w-auto pt-5'/>
+            <div className="bg-[url('https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero-bg_tavadb.png')] bg-cover max-full  flex flex-wrap justify-center">
+                <img src="https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero_uoqf5h.png" alt="" className= 'h-75 w-auto pt-5'/>
                 {/* <HeaderElement trendingMovies = {trendingMovies}/> */}
                 <h1>Find <span className='text-gradient'>Movies</span> You Will Enjoy Without The Hassel</h1> 
                 <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
