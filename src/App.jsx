@@ -6,6 +6,8 @@ import MovieCard from './components/MovieCard';
 import { useDebounce } from 'react-use';
 import { updateSearchCount, getTrendingMovies } from './appwrite.js';
 import TrendingMoviesComponent from './components/TrendingMoviesComponent.jsx';
+import HeaderElement from './components/HeaderElement.jsx';
+
 
 
 
@@ -115,8 +117,11 @@ function App() {
         <div className="wrapper" onClick={() => searching ? setSearching(false) : null}>
           <header>
             <div className="bg-[url('https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero-bg_tavadb.png')] bg-cover max-full  flex flex-wrap justify-center">
-                <img src="https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero_uoqf5h.png" alt="" className= 'h-75 w-auto pt-5'/>
-                {/* <HeaderElement trendingMovies = {trendingMovies}/> */}
+                {/* <img src="https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero_uoqf5h.png" alt="" className= 'h-75 w-auto pt-5'/> */}
+
+                <HeaderElement trendingMovies = {trendingMovies}/>
+
+
                 <h1>Find <span className='text-gradient'>Movies</span> You Will Enjoy Without The Hassel</h1> 
                 <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearching= {setSearching}/>
             </div>
