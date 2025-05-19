@@ -89,7 +89,7 @@
   .trending {
 
     & ul {
-      @apply flex flex-row gap-5 w-full overflow-y-auto;
+      @apply flex flex-row gap-5 w-full overflow-y-auto scrollbar-hidden;
     }
 
     & ul li {
@@ -114,4 +114,20 @@
   -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
   font-size: 190px;
   font-family: "Bebas Neue", sans-serif;
+}
+
+/* @layer utilities{
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  } 
+  .no-scrollbar {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+} */
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
