@@ -108,16 +108,17 @@ function App() {
     loadTrendingMovies();
   }, [])
 
-
+  useEffect( () => {
+    
+  }) 
  
   return (
     <>
       <div className="pattern ">
 
-        <div className="wrapper" onClick={() => searching ? setSearching(false) : null}>
+        <div className="wrapper" onClick={() => searching && searchTerm==='' ? setSearching(false) : null}>
           <header>
             <div className="bg-[url('https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero-bg_tavadb.png')] bg-cover max-full  flex flex-wrap justify-center">
-                {/* <img src="https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663069/hero_uoqf5h.png" alt="" className= 'h-75 w-auto pt-5'/> */}
 
                 <HeaderElement trendingMovies = {trendingMovies}/>
 
@@ -135,7 +136,7 @@ function App() {
         
 
           <section className='all-movies pt-5'>
-             <h2 className='pl-8 pb-3'>All Movies</h2>
+             <h2 className='pl-8 pb-1'>All Movies</h2>
             <div className="flex justify-center flex-wrap">
                   {loading ? <Spinner/> : error ? (<p className='text-red-500'>{error}</p>) : 
               (
