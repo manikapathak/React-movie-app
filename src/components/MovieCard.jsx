@@ -3,7 +3,7 @@ import react from 'react';
 const MovieCard = ({movie : {title, vote_average, poster_path, release_date, original_language }}) => {
     return (
         <div className="movie-card">
-           <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663082/no-movie_ujhqzi.png"} alt="Movie"/>
+           <img src={poster_path && poster_path !== "null" ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "https://res.cloudinary.com/dhge5bwvy/image/upload/v1747663082/no-movie_ujhqzi.png"} alt="Movie"/>
            <h3>{title}</h3>
            <div className="content">
                 <div className="rating">
