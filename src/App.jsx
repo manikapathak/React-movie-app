@@ -139,8 +139,8 @@ function App() {
                   {loading ? <Spinner/> : error ? (<p className='text-red-500'>{error}</p>) : 
               (
                   <ul>
-                    {movieList.map((movie) => (
-                      <MovieCard movie =  {movie}/>
+                    {movieList.map((movie, index) => (
+                      <MovieCard movie =  {movie} index = {index}/>
                     ))}
                   </ul>
               )}
